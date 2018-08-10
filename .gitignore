@@ -1,0 +1,18 @@
+
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+
+# Visual Studio Code
+.vscode/
+
+# Output folder used by Webpack or other FE stuff
+**/node_modules/*
+**/wwwroot/*
+
+#####
+# End of core ignore list, below put you custom 'per project' settings (patterns or path)
+#####
