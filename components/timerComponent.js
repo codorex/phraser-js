@@ -30,7 +30,7 @@ module.exports.TimerComponent = function(selector, reference){
         self);
 
     // tagEvent="${self.reference}.someMethod(args)" allows for binding 
-    // component functions to tag events by component reference.
+    // component functions to events by component reference.
 
     this.timer = 0;
 
@@ -44,6 +44,10 @@ module.exports.TimerComponent = function(selector, reference){
         }
     }
 
+    // onInit should be called at the end of the Component
+    // to initialize the component in the DOM
+    // Users can attach a callback to be executed just before 
+    // the View is parsed and rendered (e.g to get additional data from a service)
     this.onInit(function(){
         setInterval(function(){
             self.timer++;
