@@ -1,0 +1,19 @@
+{
+  "name": "phraser",
+  "version": "1.0.0",
+  "description": "A Component rendering library, that features a fully fledged template interpolation, dependency injection, live component state updates.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "templateengine",
+    "component"
+  ],
+  "author": "codorex",
+  "license": "ISC",
+  "dependencies": {
+    "bower-requirejs": "^1.2.0"
+  }
+}
