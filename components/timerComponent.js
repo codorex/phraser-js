@@ -1,8 +1,8 @@
 
-let componentNamespace = require('../phraser/component.js');
+let componentNamespace = require('../phraser/component');
 let Component = componentNamespace.Component;
 let extend = componentNamespace.extend;
-let View = require('../phraser/phraser.js').View;
+let View = require('../phraser/phraser').View;
 
 // the following is an example component, that showcases the minimum required 
 // to get a component working, as well as some certain scenarious.

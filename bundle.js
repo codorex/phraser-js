@@ -1,7 +1,7 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-require('./phraser/arrayExtensions.js')
-let TimerComponent = require('./components/timerComponent.js').TimerComponent;
-let ComponentHandler = require('./phraser/component.js').ComponentHandler;
+require('./phraser/arrayExtensions')
+let TimerComponent = require('./components/timerComponent').TimerComponent;
+let ComponentHandler = require('./phraser/component').ComponentHandler;
 
 window.onload = function(){
     let handler = new ComponentHandler([
@@ -10,12 +10,12 @@ window.onload = function(){
 
     handler.initialize();
 }
-},{"./components/timerComponent.js":2,"./phraser/arrayExtensions.js":3,"./phraser/component.js":4}],2:[function(require,module,exports){
+},{"./components/timerComponent":2,"./phraser/arrayExtensions":3,"./phraser/component":4}],2:[function(require,module,exports){
 
-let componentNamespace = require('../phraser/component.js');
+let componentNamespace = require('../phraser/component');
 let Component = componentNamespace.Component;
 let extend = componentNamespace.extend;
-let View = require('../phraser/phraser.js').View;
+let View = require('../phraser/phraser').View;
 
 // the following is an example component, that showcases the minimum required 
 // to get a component working, as well as some certain scenarious.
@@ -43,7 +43,7 @@ module.exports.TimerComponent = function(selector, reference){
         self);
 
     // tagEvent="${self.reference}.someMethod(args)" allows for binding 
-    // component functions to tag events by component reference.
+    // component functions to events by component reference.
 
     this.timer = 0;
 
@@ -57,6 +57,10 @@ module.exports.TimerComponent = function(selector, reference){
         }
     }
 
+    // onInit should be called at the end of the Component
+    // to initialize the component in the DOM
+    // Users can attach a callback to be executed just before 
+    // the View is parsed and rendered (e.g to get additional data from a service)
     this.onInit(function(){
         setInterval(function(){
             self.timer++;
@@ -64,7 +68,7 @@ module.exports.TimerComponent = function(selector, reference){
         }, 1000)
     })
 }
-},{"../phraser/component.js":4,"../phraser/phraser.js":5}],3:[function(require,module,exports){
+},{"../phraser/component":4,"../phraser/phraser":5}],3:[function(require,module,exports){
 module.exports.defaultVal = function (type) {
     if (typeof type !== 'string') throw new TypeError('Type must be a string.');
 
@@ -157,7 +161,7 @@ Array.prototype.remove = function(predicate){
     return array;
 }
 },{}],4:[function(require,module,exports){
-let PhraserContainer = require('./phraserContainer.js').PhraserContainer
+let PhraserContainer = require('./phraserContainer').PhraserContainer
 
 module.exports.extend = function(child, parent){
     child.prototype = Object.create(parent.prototype);
@@ -204,7 +208,7 @@ module.exports.ComponentHandler = function(bindings){
         })
     }
 }
-},{"./phraserContainer.js":6}],5:[function(require,module,exports){
+},{"./phraserContainer":6}],5:[function(require,module,exports){
 module.exports.View = function (selector, reference, template, data) {
     let _template = template ? template : '';
     let _rawTemplate = _template;

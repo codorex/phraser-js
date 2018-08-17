@@ -1,6 +1,6 @@
-require('./phraser/arrayExtensions.js')
-let TimerComponent = require('./components/timerComponent.js').TimerComponent;
-let ComponentHandler = require('./phraser/component.js').ComponentHandler;
+require('./phraser/arrayExtensions')
+let TimerComponent = require('./components/timerComponent').TimerComponent;
+let ComponentHandler = require('./phraser/component').ComponentHandler;
 
 window.onload = function(){
     let handler = new ComponentHandler([

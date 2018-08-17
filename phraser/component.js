@@ -1,4 +1,4 @@
-let PhraserContainer = require('./phraserContainer.js').PhraserContainer
+let PhraserContainer = require('./phraserContainer').PhraserContainer
 
 module.exports.extend = function(child, parent){
     child.prototype = Object.create(parent.prototype);
